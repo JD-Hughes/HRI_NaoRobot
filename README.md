@@ -19,5 +19,5 @@
    ```
 6. Run the code (python main.py)
    ```shell
-   python main.py
+   python mediapipe_pose_demo.py
    ```
