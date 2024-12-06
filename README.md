@@ -19,5 +19,15 @@
    ```
 6. Run the code (python main.py)
    ```shell
-   python main.py
+   python mediapipe_pose_demo.py
    ```
+
+---
+
+### Scripts:
+
+**main.py** - The original code written to livestream from the webcam following the [mediapipe python guide](https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker/python)
+
+**mediapipe_pose_demo.py** - Code downloaded from the [Google Mediapipe GitHub repo](https://github.com/google-ai-edge/mediapipe/blob/master/docs/solutions/pose.md)
+
+**SocketConnectionTest** - Files in this directory show how to send a command to the robot and make it speak
