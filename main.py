@@ -1,5 +1,6 @@
 import cv2
 import time
+import os.path
 import mediapipe as mp
 import numpy as np
 from mediapipe.tasks import python
@@ -7,6 +8,12 @@ from mediapipe.tasks.python import vision
 from mediapipe import solutions
 from mediapipe.framework.formats import landmark_pb2
 
+
+#Check for installed model files
+if(os.path.isfile('pose_landmarker_heavy.task') == False):
+  print("You do not have the correct model file installed.. Use this command to install it:")
+  print("   wget https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_heavy/float16/latest/pose_landmarker_heavy.task")
+  exit()
 
 BaseOptions = mp.tasks.BaseOptions
 PoseLandmarker = mp.tasks.vision.PoseLandmarker
