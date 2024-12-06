@@ -6,7 +6,8 @@
    ```shell
    python -m venv .venv
    ```
-**3. Activate the virtual environment** 
+**3. Activate the virtual environment**
+
    on linux:
    ```shell
    source .venv/bin/activate
