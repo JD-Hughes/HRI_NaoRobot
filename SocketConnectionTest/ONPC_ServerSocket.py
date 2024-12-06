@@ -58,7 +58,7 @@ class SimpleServer:
         # If we get the right answer, do complex maths to answer the client's request
         if important_message == "SendDataPlease":
             print("Sending a data back to the client")
-            important_answer = "This is a test"
+            important_answer = "This text has been recieved from the server"
         
             #---SERVER STUFF: Sends the output to the client---#
             client_socket.sendall(str(important_answer).encode())

@@ -24,7 +24,7 @@ import time
 
 # Parameters for the server
 
-host = '169.254.13.207'     # = 'FIND YOUR IP ADDRESS' # See above notes
+host = '169.254.93.16'     # = 'FIND YOUR IP ADDRESS' # See above notes
 # host = '172.0.0.1'          # Localhost, uncomment if running in simulation
 port = 8888 # No need to change
 
@@ -35,14 +35,14 @@ class MyClass(GeneratedClass):
 
     def __init__(self):
         GeneratedClass.__init__(self)
-        self.tts = ALProxy
+        self.tts = ALProxy('ALTextToSpeech')
 
     def onLoad(self):
         # Called when "play" is pressed
         pass
 
 
-    def send_data(self, data):
+    def send_data(self, client_socket, data):
         self.logger.info("Sending data: %s",str(data))
         client_socket.sendall(str(data).encode())
 
@@ -56,22 +56,16 @@ class MyClass(GeneratedClass):
         client_socket.connect((host, port))
 
         ### 2. Send a message
-        send_data("SendDataPlease")
+        self.send_data(client_socket,"SendDataPlease")
         # Small delay so the server can keep up
         time.sleep(0.001)
         # Sends a 1 to the server
-        client_socket.sendall("1".encode())
+        data = client_socket.recv(1024).decode()
+        self.logger.info("Data recieved : %s", str(data))
+        self.tts.say(str(data))
+        self.send_data(client_socket,"Finished Speaking")
+        client_socket.close()
 
-        ### 3. Receive a message
-        while True:
-            try:
-                data = client_socket.recv(1024).decode()
-                self.logger.info("Data recieved! : %s", str(data))
-                self.tts.say(str(data))
-                client_socket.sendall("0".encode())
-            except:
-                self.logger.info("Timeout")
-        # Outputs the number that the NAO just got from the server
         pass
 
     def onInput_onStop(self):
