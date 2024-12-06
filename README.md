@@ -9,11 +9,15 @@
    ```shell
    source .venv/bin/activate
    ```
-4. Install the requirements
+   and on windows (CMD):
+   ```shell
+   .\venv\Scripts\activate.bat
+   ```
+5. Install the requirements
    ```shell
    pip install -r requirements.txt
    ```
-5. Run the code (python main.py)
+6. Run the code (python main.py)
    ```shell
    python main.py
    ```
