@@ -1,23 +1,25 @@
 ## Installation:
 
-1. Install python (I am running 2.12.7)
-2. Create a virtual environment
+**1. Install python** (I am running 2.12.7)
+
+**2. Create a virtual environment**
    ```shell
    python -m venv .venv
    ```
-3. Activate the virtual environment (on linux this can be done by:)
+**3. Activate the virtual environment** 
+   on linux:
    ```shell
    source .venv/bin/activate
    ```
-   and on windows (CMD):
+   and on windows:
    ```shell
    .\venv\Scripts\activate.bat
    ```
-5. Install the requirements
+**5. Install the requirements**
    ```shell
    pip install -r requirements.txt
    ```
-6. Run the code (python main.py)
+**6. Run the code**
    ```shell
    python mediapipe_pose_demo.py
    ```
