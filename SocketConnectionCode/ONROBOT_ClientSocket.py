@@ -63,6 +63,7 @@ class MyClass(GeneratedClass):
         # Sends a 1 to the server
         data = client_socket.recv(1024).decode()
         self.logger.info("Data recieved : %s", str(data))
+        self.onStopped(str(data)) 
         client_socket.close()
         pass
 
