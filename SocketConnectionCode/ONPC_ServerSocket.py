@@ -14,8 +14,12 @@ python3 simple_socket_server.py
 import socket
 
 # Define the server (computer) details
+# LEAVE ALL OF THIS THE SAME
 host = '0.0.0.0'    # Localhost
 port = 8888         # Port number
+
+def isInPose():
+    return True
 
 class SimpleServer:
     def __init__(self, host, port):
@@ -52,16 +56,17 @@ class SimpleServer:
 
     def handle_client(self, client_socket):
         ### 3. Receive the data from the client
-        important_message = client_socket.recv(1024).decode()
-        print(f"Received the message: {important_message}")
+        client_message = client_socket.recv(1024).decode()
+        print(f"Received the message: {client_message}")
         
         # If we get the right answer, do complex maths to answer the client's request
-        if important_message == "SendDataPlease":
-            print("Sending a data back to the client")
-            important_answer = "This text has been recieved from the server"
+        if client_message == "poseCheck":
+            result = isInPose()
+            print("Sending data", result)
+            client_response = str(result)
         
             #---SERVER STUFF: Sends the output to the client---#
-            client_socket.sendall(str(important_answer).encode())
+            client_socket.sendall(str(client_response).encode())
 
         #---SERVER STUFF: Close the client socket---#
         client_socket.close()

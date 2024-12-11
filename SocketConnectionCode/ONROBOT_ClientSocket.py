@@ -33,9 +33,10 @@ client_socket = None
 
 class MyClass(GeneratedClass):
 
+    result = None
+
     def __init__(self):
         GeneratedClass.__init__(self)
-        self.tts = ALProxy('ALTextToSpeech')
 
     def onLoad(self):
         # Called when "play" is pressed
@@ -56,21 +57,18 @@ class MyClass(GeneratedClass):
         client_socket.connect((host, port))
 
         ### 2. Send a message
-        self.send_data(client_socket,"SendDataPlease")
+        self.send_data(client_socket,"poseCheck")
         # Small delay so the server can keep up
         time.sleep(0.001)
         # Sends a 1 to the server
         data = client_socket.recv(1024).decode()
         self.logger.info("Data recieved : %s", str(data))
-        self.tts.say(str(data))
-        self.send_data(client_socket,"Finished Speaking")
         client_socket.close()
-
         pass
 
     def onInput_onStop(self):
         self.onUnload() 
-        self.onStopped("Stopped") #activate the output of the box
+        self.onStopped(str(self.result)) #activate the output of the box
 
     def onUnload(self): 
         # Close the socket when stopped   
