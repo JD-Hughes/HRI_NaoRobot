@@ -61,12 +61,32 @@ def get_arm_level(pose_landmarks):
         return left_level
     return None
 
+def check_neck_rotation(pose_landmarks):
+    """
+    Detects if the neck is rotated to the side based on the positions of the nose and shoulders.
+    Returns 'Looking Left', 'Looking Right', or 'Straight'.
+    """
+    nose = pose_landmarks.landmark[mp_pose.PoseLandmark.NOSE.value]
+    left_shoulder = pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value]
+    right_shoulder = pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value]
+
+    # Calculate the middle x-position between the shoulders
+    middle_x = (left_shoulder.x + right_shoulder.x) / 2
+    tolerance = 0.05  # Neutral zone for straight neck detection
+
+    # print(f"Nose x: {nose.x}, Left Shoulder x: {left_shoulder.x}, Right Shoulder x: {right_shoulder.x}")
+
+    if nose.x < middle_x - tolerance:
+        return "Looking Left"  # Neck rotated to the left
+    elif nose.x > middle_x + tolerance:
+        return "Looking Right"  # Neck rotated to the right
+    # return "Straight"  # Neck is straight
 
 def process_camera():
     """
-    Continuously processes the camera feed to detect arm levels and display landmarks.
+    Continuously processes the camera feed to detect arm levels, neck rotations, and display landmarks.
     """
-    global pose_detected
+    global pose_detected, neck_rotation
     cap = cv2.VideoCapture(0)  # Use 0 for the default webcam
 
     if not cap.isOpened():
@@ -86,9 +106,11 @@ def process_camera():
         result = pose.process(rgb_frame)
 
         with lock:
-            pose_detected = None  # Reset pose detection
+            pose_detected = None  # Reset arm detection
+            neck_rotation = None  # Reset neck rotation
             if result.pose_landmarks:
                 pose_detected = get_arm_level(result.pose_landmarks)
+                neck_rotation = check_neck_rotation(result.pose_landmarks)
 
                 # Draw landmarks on the frame
                 draw_landmarks_on_image(frame, result.pose_landmarks)
@@ -102,7 +124,7 @@ def process_camera():
     cv2.destroyAllWindows()
 
 
-def isInPose():
+def isInPose_1():
     """
     Blocks until the arms are detected at the same level, then returns the level.
     """
@@ -111,6 +133,14 @@ def isInPose():
             if pose_detected is not None:
                 return pose_detected
 
+def isInPose_2():
+    """
+    Blocks until the neck rotation is detected, then returns the direction ('Looking Left', 'Looking Right', or 'Straight').
+    """
+    while True:
+        with lock:
+            if neck_rotation is not None:
+                return neck_rotation
 
 class SimpleServer:
     def __init__(self, host, port):
@@ -150,14 +180,16 @@ class SimpleServer:
         client_message = client_socket.recv(1024).decode()
         print(f"Received the message: {client_message}")
 
-        poseIdx = decodeMsg(client_message)
+        poseIdx = self.decodeMsg(client_message)
 
         match poseIdx:
             case 1:
-                result = isInPose()
+                print("Checking pose 1")
+                result = isInPose_1()
             case 2:
-                result = isInPose()
-            case 0:
+                print("Checking pose 2")
+                result = isInPose_2()
+            case _:
                 print("Invalid pose index: ", str(poseIdx))
                 result = False
             
