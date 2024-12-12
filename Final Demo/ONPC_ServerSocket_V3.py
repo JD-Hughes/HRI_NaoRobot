@@ -166,7 +166,7 @@ class SimpleServer:
             self.server_socket.close()
 
     def decodeMsg(self, msg):
-        valid_vals = [1,2]
+        valid_vals = [1,2,99]
         if "poseCheck=" in msg:
             stripped_msg = msg.replace("poseCheck=","")
             try:
@@ -189,6 +189,8 @@ class SimpleServer:
             case 2:
                 print("Checking pose 2")
                 result = isInPose_2()
+            case 99:
+                exit()
             case _:
                 print("Invalid pose index: ", str(poseIdx))
                 result = False
