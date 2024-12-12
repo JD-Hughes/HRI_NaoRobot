@@ -57,7 +57,7 @@ class MyClass(GeneratedClass):
         client_socket.connect((host, port))
 
         ### 2. Send a message
-        self.send_data(client_socket,"poseCheck")
+        self.send_data(client_socket,"poseCheck=1")
         # Small delay so the server can keep up
         time.sleep(0.001)
         # Sends a 1 to the server

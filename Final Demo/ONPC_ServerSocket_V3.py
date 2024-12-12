@@ -135,16 +135,35 @@ class SimpleServer:
         finally:
             self.server_socket.close()
 
+    def decodeMsg(self, msg):
+        valid_vals = [1,2]
+        if "poseCheck=" in msg:
+            stripped_msg = msg.replace("poseCheck=","")
+            try:
+                if int(stripped_msg) in valid_vals:
+                    return int(stripped_msg)
+            except:
+                return 0
+        return 0
+
     def handle_client(self, client_socket):
         client_message = client_socket.recv(1024).decode()
         print(f"Received the message: {client_message}")
 
-        if client_message == "poseCheck":
-            # Wait until arms are at the same level
-            result = isInPose()
-            client_response = f"{result}"
-            print("Sending data:", client_response)
-            client_socket.sendall(client_response.encode())
+        poseIdx = decodeMsg(client_message)
+
+        match poseIdx:
+            case 1:
+                result = isInPose()
+            case 2:
+                result = isInPose()
+            case 0:
+                print("Invalid pose index: ", str(poseIdx))
+                result = False
+            
+        client_response = f"{result}"
+        print("Sending data:", client_response)
+        client_socket.sendall(client_response.encode())
 
         client_socket.close()
 
