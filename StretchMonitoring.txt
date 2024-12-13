@@ -1,0 +1,207 @@
+import cv2
+import mediapipe as mp
+import numpy as np
+import statistics
+mp_drawing = mp.solutions.drawing_utils
+mp_pose = mp.solutions.pose
+
+JointColours = [100,100,255,100,255,100]
+
+RightShoulderCorrect = 0
+RightElbowCorrect = 0
+RightHipCorrect = 0
+LeftElbowCorrect = 0
+LeftShoulderCorrect = 0
+LeftHipCorrect = 0
+
+def calculate_angle(a,b,c):
+    a = np.array(a) # First
+    b = np.array(b) # Mid
+    c = np.array(c) # End
+    
+    radians = np.arctan2(c[1]-b[1], c[0]-b[0]) - np.arctan2(a[1]-b[1], a[0]-b[0])
+    angle = np.abs(radians*180.0/np.pi)
+
+    if angle >180.0:
+        angle = 360-angle
+
+    
+
+    return angle
+
+
+def Pose1(ElbowLAngle, ShoulderLAngle, ElbowRAngle, ShoulderRAngle):
+    global LeftElbowCorrect, LeftShoulderCorrect, RightShoulderCorrect, RightElbowCorrect
+
+    LeftElbowCorrect = 3 if 150 < ElbowLAngle < 190 else 0
+    LeftShoulderCorrect = 3 if 110 < ShoulderLAngle < 150 else 0
+    RightElbowCorrect = 3 if 150 < ElbowRAngle < 190 else 0
+    RightShoulderCorrect = 3 if 110 < ShoulderRAngle <150 else 0
+
+
+def Pose2(ElbowLAngle, ShoulderLAngle, ElbowRAngle, ShoulderRAngle):
+    global LeftElbowCorrect, LeftShoulderCorrect, RightShoulderCorrect, RightElbowCorrect
+
+    LeftElbowCorrect = 3 if 20 < ElbowLAngle < 50 else 0
+    LeftShoulderCorrect = 3 if 90 < ShoulderLAngle < 110 else 0
+    RightElbowCorrect = 3 if 20 < ElbowRAngle < 50 else 0
+    RightShoulderCorrect = 3 if 90 < ShoulderRAngle <110 else 0
+
+def Pose3L(HipLAngle):
+    global LeftHipCorrect
+
+    LeftHipCorrect = 3 if 80 < HipLAngle < 110 else 0
+
+def Pose4R(HipRAngle):
+    global RightHipCorrect
+
+    RightHipCorrect = 3 if 80 < HipRAngle < 110 else 0
+
+i = 0
+PoseChoice = 1
+PoseHeld = []
+NAORequest = 0
+
+cap = cv2.VideoCapture(0)
+## Setup mediapipe instance
+with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
+    while cap.isOpened():
+        ret, frame = cap.read()
+        
+        # Recolor image to RGB
+        image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        image.flags.writeable = False
+      
+        # Make detection
+        results = pose.process(image)
+    
+        # Recolor back to BGR
+        image.flags.writeable = True
+        image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+        
+        # Extract landmarks
+        try:
+            landmarks = results.pose_landmarks.landmark
+            
+            # Get coordinates
+            shoulderL = [landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
+            elbowL = [landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].x,landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].y]
+            wristL = [landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].x,landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].y]
+            hipL = [landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].x,landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].y]
+            kneeL = [landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].x,landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].y]
+            
+            shoulderR = [landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y]
+            elbowR = [landmarks[mp_pose.PoseLandmark.RIGHT_ELBOW.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_ELBOW.value].y]
+            wristR = [landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].y]
+            hipR = [landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y]
+            kneeR = [landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].y]
+
+            Face = [landmarks[mp_pose.PoseLandmark.NOSE.value].x,landmarks[mp_pose.PoseLandmark.NOSE.value].y]
+
+
+
+            # Calculate angle
+            ElbowLAngle = calculate_angle(shoulderL, elbowL, wristL)
+            
+            ElbowRAngle = calculate_angle(shoulderR, elbowR, wristR)
+
+            ShoulderRAngle = calculate_angle(shoulderL, shoulderR, elbowR)
+            
+            ShoulderLAngle = calculate_angle(shoulderR, shoulderL, elbowL)
+
+            HipLAngle = calculate_angle(shoulderL, hipL, kneeL)
+
+            HipRAngle = calculate_angle(shoulderR, hipR, kneeR)
+            
+
+            
+            #Convert angle into integer
+            ElbowLAngle = int(ElbowLAngle)
+            ElbowRAngle = int(ElbowRAngle)
+            ShoulderRAngle = int(ShoulderRAngle)
+            ShoulderLAngle = int(ShoulderLAngle)
+            HipLAngle = int(HipLAngle)
+            HipRAngle = int(HipRAngle)
+
+
+
+            match PoseChoice:
+                case 1:
+                    Pose1(ElbowLAngle, ShoulderLAngle, ElbowRAngle, ShoulderRAngle)
+                case 2:
+                    Pose2(ElbowLAngle, ShoulderLAngle, ElbowRAngle, ShoulderRAngle)
+                case 3:
+                    Pose3L(HipLAngle)
+                case 4:
+                    Pose4R(HipRAngle)
+            PoseCorrect = 0
+            if ((PoseChoice == 1) or (PoseChoice == 2)):
+                if ((RightShoulderCorrect == 3) and (LeftShoulderCorrect == 3) and (RightElbowCorrect == 3) and (LeftElbowCorrect == 3)):
+                    PoseCorrect = 1
+            elif ((PoseChoice == 3) or (PoseChoice == 4)):
+                if ((RightHipCorrect == 3) or (LeftHipCorrect == 3)):
+                    PoseCorrect = 1
+
+            if (NAORequest == 1):
+                i = 0
+                PoseHeld = []
+            if (i < 60):
+                if (PoseCorrect == 1):
+                    PoseHeld.append(1)
+                else:
+                    PoseHeld.append(0)
+            elif (i == 60):
+                IsPoseHeld = statistics.mode(PoseHeld)
+                print(IsPoseHeld)
+            i = i+1
+
+            
+
+            # Visualize angle
+            cv2.putText(image, str(ElbowLAngle), 
+                           tuple(np.multiply(elbowL, [640, 480]).astype(int)), 
+                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, (JointColours[LeftElbowCorrect], JointColours[LeftElbowCorrect+1], JointColours[LeftElbowCorrect+2]), 2, cv2.LINE_AA
+                                )
+
+            cv2.putText(image, str(ElbowRAngle), 
+                           tuple(np.multiply(elbowR, [640, 480]).astype(int)), 
+                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, (JointColours[RightElbowCorrect], JointColours[RightElbowCorrect+1],JointColours[RightElbowCorrect+2]), 2, cv2.LINE_AA
+                                )
+
+            cv2.putText(image, str(ShoulderRAngle), 
+                           tuple(np.multiply(shoulderR, [640, 480]).astype(int)), 
+                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, (JointColours[RightShoulderCorrect], JointColours[RightShoulderCorrect+1], JointColours[RightShoulderCorrect+2]), 2, cv2.LINE_AA
+                                )
+
+            cv2.putText(image, str(ShoulderLAngle), 
+                           tuple(np.multiply(shoulderL, [640, 480]).astype(int)),
+                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, (JointColours[LeftShoulderCorrect], JointColours[LeftShoulderCorrect+1], JointColours[LeftShoulderCorrect+2]), 2, cv2.LINE_AA
+                                )
+        
+            cv2.putText(image, str(HipRAngle), 
+                           tuple(np.multiply(hipR, [640, 480]).astype(int)), 
+                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, (JointColours[RightHipCorrect], JointColours[RightHipCorrect+1], JointColours[RightHipCorrect+2]), 2, cv2.LINE_AA
+                                )
+        
+            cv2.putText(image, str(HipLAngle), 
+                           tuple(np.multiply(hipL, [640, 480]).astype(int)),
+                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, (JointColours[LeftHipCorrect], JointColours[LeftHipCorrect+1], JointColours[LeftHipCorrect+2]), 2, cv2.LINE_AA
+                                )
+                       
+        except:
+            pass
+        
+        
+        # Render detections
+        mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
+                                mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=2), 
+                                mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2) 
+                                 )               
+        
+        cv2.imshow('Mediapipe Feed', image)
+        
+        if cv2.waitKey(10) & 0xFF == ord('q'):
+            break
+    
+    cap.release()
+    cv2.destroyAllWindows()
