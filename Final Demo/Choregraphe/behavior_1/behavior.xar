@@ -347,7 +347,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="your day" id="6" localization="8" tooltip="Say some text. The text can be localized." x="1922" y="95">
+            <Box name="your day" id="6" localization="8" tooltip="Say some text. The text can be localized." x="1965" y="165">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -465,7 +465,7 @@ class MyClass(GeneratedClass):
               <Output name="output_5" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="8" />
               <Output name="output_6" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="9" />
             </Box>
-            <Box name="good" id="8" localization="8" tooltip="Say some text. The text can be localized." x="2599" y="0">
+            <Box name="good" id="8" localization="8" tooltip="Say some text. The text can be localized." x="2689" y="205">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -522,7 +522,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Choosing Exercise" id="10" localization="8" tooltip="Say some text. The text can be localized." x="2847" y="143">
+            <Box name="Choosing Exercise" id="10" localization="8" tooltip="Say some text. The text can be localized." x="2969" y="165">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -579,7 +579,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="bad" id="11" localization="8" tooltip="Say some text. The text can be localized." x="2679" y="278">
+            <Box name="bad" id="11" localization="8" tooltip="Say some text. The text can be localized." x="2683" y="540">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -747,7 +747,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Their Turn" id="13" localization="8" tooltip="Say some text. The text can be localized." x="4194" y="175">
+            <Box name="Their Turn" id="13" localization="8" tooltip="Say some text. The text can be localized." x="4207" y="257">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -804,7 +804,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Stand Up" id="16" localization="8" tooltip="the robot tries to stand up from any position for a number of tries.&#x0A;&#x0A;Note: The number of tries can be set in parameters." x="88" y="579">
+            <Box name="Stand Up" id="16" localization="8" tooltip="the robot tries to stand up from any position for a number of tries.&#x0A;&#x0A;Note: The number of tries can be set in parameters." x="124" y="577">
               <bitmap>media/images/box/movement/stand.png</bitmap>
               <script language="4">
                 <content>
@@ -1057,119 +1057,6 @@ class MyClass(GeneratedClass):
               <Resource name="Standing" type="Lock" timeout="1" />
               <Resource name="All motors" type="Lock" timeout="1" />
             </Box>
-            <Box name="FancyRightArmCircle_LeanRight_01" id="55" localization="8" tooltip="ID : #01E 0003&#x0A;&#x0A;===================&#x0A;&#x0A;Tags : &#x0A;- What?&#x0A;- Please&#x0A;- Maybe&#x0A;&#x0A;&#x0A;===================&#x0A;&#x0A;Common dialog : Yes&#x0A;&#x0A;===================&#x0A;&#x0A;Start stance : Center&#x0A;End stance : LeanRight" x="325" y="43">
-              <bitmap>media/images/box/movement/move.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
-              <Timeline enable="1" fps="25" start_frame="1" end_frame="-1" size="41">
-                <ActuatorList model="">
-                  <ActuatorCurve name="value" actuator="HeadPitch" mute="0" unit="0">
-                    <Key frame="7" value="-3.60597" />
-                    <Key frame="12" value="6.5" />
-                    <Key frame="18" value="-3.60597" />
-                    <Key frame="41" value="-3.60597" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LAnklePitch" mute="0" unit="0">
-                    <Key frame="38" value="-7.03374" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LAnkleRoll" mute="0" unit="0">
-                    <Key frame="38" value="-11.5114" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LElbowRoll" mute="0" unit="0">
-                    <Key frame="15" value="-87.7" />
-                    <Key frame="27" value="-72.4" />
-                    <Key frame="35" value="-86.0436" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LHipPitch" mute="0" unit="0">
-                    <Key frame="38" value="6.59429" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LHipRoll" mute="0" unit="0">
-                    <Key frame="38" value="12.6588" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LHipYawPitch" mute="0" unit="0">
-                    <Key frame="38" value="-14.7634" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LKneePitch" mute="0" unit="0">
-                    <Key frame="38" value="12.3024" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LShoulderRoll" mute="0" unit="0">
-                    <Key frame="15" value="26.9" />
-                    <Key frame="27" value="8.69887" />
-                    <Key frame="35" value="10.8962" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RAnklePitch" mute="0" unit="0">
-                    <Key frame="38" value="-8.69887" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RAnkleRoll" mute="0" unit="0">
-                    <Key frame="38" value="-7.3805" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RElbowRoll" mute="0" unit="0">
-                    <Key frame="14" value="88.5" />
-                    <Key frame="31" value="61.1" />
-                    <Key frame="38" value="88.5" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RElbowYaw" mute="0" unit="0">
-                    <Key frame="24" value="95.0964" />
-                    <Key frame="38" value="45.8" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RHand" mute="0" unit="1">
-                    <Key frame="14" value="0.25" />
-                    <Key frame="24" value="1" />
-                    <Key frame="31" value="0.37" />
-                    <Key frame="38" value="0.19" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RHipPitch" mute="0" unit="0">
-                    <Key frame="38" value="7.81997" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RHipRoll" mute="0" unit="0">
-                    <Key frame="38" value="9.75839" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RHipYawPitch" mute="0" unit="0">
-                    <Key frame="38" value="-14.7634" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RKneePitch" mute="0" unit="0">
-                    <Key frame="38" value="11.7799" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RShoulderPitch" mute="0" unit="0">
-                    <Key frame="14" value="61" />
-                    <Key frame="38" value="89.0367" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RShoulderRoll" mute="0" unit="0">
-                    <Key frame="24" value="-1.05711" />
-                    <Key frame="38" value="12.2" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RWristYaw" mute="0" unit="0">
-                    <Key frame="24" value="95.448" />
-                    <Key frame="38" value="2.9" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LElbowYaw" mute="0" unit="0">
-                    <Key frame="27" value="-77.1713" />
-                    <Key frame="35" value="-67.5033" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LHand" mute="0" unit="1">
-                    <Key frame="27" value="0.3036" />
-                    <Key frame="35" value="0.3036" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LShoulderPitch" mute="0" unit="0">
-                    <Key frame="27" value="88.5925" />
-                    <Key frame="35" value="88.5925" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LWristYaw" mute="0" unit="0">
-                    <Key frame="27" value="-31.5555" />
-                    <Key frame="35" value="-13.0104" />
-                  </ActuatorCurve>
-                </ActuatorList>
-              </Timeline>
-              <Resource name="Standing" type="Lock" timeout="1" />
-              <Resource name="All motors" type="Lock" timeout="1" />
-            </Box>
             <Box name="Stand Up (2)" id="19" localization="8" tooltip="the robot tries to stand up from any position for a number of tries.&#x0A;&#x0A;Note: The number of tries can be set in parameters." x="2797" y="738">
               <bitmap>media/images/box/movement/stand.png</bitmap>
               <script language="4">
@@ -1327,7 +1214,7 @@ class MyClass(GeneratedClass):
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
               <Output name="wordRecognized" type="3" type_size="1" nature="2" inner="0" tooltip="Word recognized with a confidence higher than the threshold set in the box parameters." id="5" />
               <Output name="onNothing" type="1" type_size="1" nature="2" inner="0" tooltip="Nothing has been understood." id="6" />
-              <Parameter name="Word list" inherits_from_parent="0" content_type="3" value="good;not bad;great; not good;bad;not great" default_value="yes;no" custom_choice="0" tooltip="Try to recognize a word from a list of words set in the box parameters." id="7" />
+              <Parameter name="Word list" inherits_from_parent="0" content_type="3" value="good;not bad;great;not good;bad;not great" default_value="yes;no" custom_choice="0" tooltip="Try to recognize a word from a list of words set in the box parameters." id="7" />
               <Parameter name="Confidence threshold (%)" inherits_from_parent="0" content_type="1" value="30" default_value="30" min="0" max="100" tooltip="If the confidence associated with the word recognized is below this threshold, the robot will consider that it is not recognized." id="8" />
               <Parameter name="Enable word spotting" inherits_from_parent="0" content_type="0" value="0" default_value="0" tooltip="If this option is not activated the robot will only understand exact expressions. If it is, he will spot the exact expressions even in the middle of a sentence.&#x0A;&#x0A;!!Warning!! This option is only available with the speech recognition module using Nuance (ie in Atom version of the robot)." id="9" />
               <Resource name="Speech recognition" type="Lock" timeout="0" />
@@ -1529,7 +1416,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="can&apos;t stand" id="24" localization="8" tooltip="Say some text. The text can be localized." x="2938" y="698">
+            <Box name="can&apos;t stand" id="24" localization="8" tooltip="Say some text. The text can be localized." x="5153" y="722">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -1586,7 +1473,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="rec name" id="25" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="314" y="173">
+            <Box name="rec name" id="25" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="359" y="44">
               <bitmap>media/images/box/interaction/ear.png</bitmap>
               <script language="4">
                 <content>
@@ -1669,7 +1556,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Enable word spotting" inherits_from_parent="0" content_type="0" value="0" default_value="0" tooltip="If this option is not activated the robot will only understand exact expressions. If it is, he will spot the exact expressions even in the middle of a sentence.&#x0A;&#x0A;!!Warning!! This option is only available with the speech recognition module using Nuance (ie in Atom version of the robot)." id="9" />
               <Resource name="Speech recognition" type="Lock" timeout="0" />
             </Box>
-            <Box name="name" id="17" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="495" y="135">
+            <Box name="name" id="17" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="458" y="192">
               <bitmap>media/images/box/interaction/choice.png</bitmap>
               <script language="4">
                 <content>
@@ -2269,7 +2156,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="joke rainy" id="36" localization="8" tooltip="Say some text. The text can be localized." x="1682" y="162">
+            <Box name="joke rainy" id="36" localization="8" tooltip="Say some text. The text can be localized." x="1753" y="244">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -3830,7 +3717,7 @@ class MyClass(GeneratedClass):
               </Timeline>
               <Resource name="All motors" type="Lock" timeout="0" />
             </Box>
-            <Box name="Blue" id="49" localization="8" tooltip="Set the LED color of the eyes. Note that you must open the box to enter the color." x="101" y="336">
+            <Box name="Blue" id="49" localization="8" tooltip="Set the LED color of the eyes. Note that you must open the box to enter the color." x="184" y="374">
               <bitmap>media/images/box/interaction/LED.png</bitmap>
               <script language="4">
                 <content>
@@ -3918,7 +3805,7 @@ class MyClass(GeneratedClass):
                 </BehaviorLayer>
               </Timeline>
             </Box>
-            <Box name="Purple" id="50" localization="8" tooltip="Set the LED color of the eyes. Note that you must open the box to enter the color." x="2633" y="541">
+            <Box name="Purple" id="50" localization="8" tooltip="Set the LED color of the eyes. Note that you must open the box to enter the color." x="2636" y="608">
               <bitmap>media/images/box/interaction/LED.png</bitmap>
               <script language="4">
                 <content>
@@ -4006,7 +3893,7 @@ class MyClass(GeneratedClass):
                 </BehaviorLayer>
               </Timeline>
             </Box>
-            <Box name="Light Blue" id="51" localization="8" tooltip="Set the LED color of the eyes. Note that you must open the box to enter the color." x="2632" y="400">
+            <Box name="Light Blue" id="51" localization="8" tooltip="Set the LED color of the eyes. Note that you must open the box to enter the color." x="2718" y="309">
               <bitmap>media/images/box/interaction/LED.png</bitmap>
               <script language="4">
                 <content>
@@ -4468,7 +4355,7 @@ import time
 
 # Parameters for the server
 
-host = '169.254.03.16'     # = 'FIND YOUR IP ADDRESS' # See above notes
+host = '169.254.149.207'     # = 'FIND YOUR IP ADDRESS' # See above notes
 # host = 'localhost'          # Localhost, uncomment if running in simulation
 port = 8888 # No need to change
 
@@ -4584,7 +4471,7 @@ class MyClass(GeneratedClass):
               <Output name="output_4" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="7" />
               <Output name="output_5" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="8" />
             </Box>
-            <Box name="Ask (1)" id="62" localization="8" tooltip="Say some text. The text can be localized." x="4744" y="36">
+            <Box name="Ask (1)" id="62" localization="8" tooltip="Say some text. The text can be localized." x="4878" y="49">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -5214,7 +5101,7 @@ class MyClass(GeneratedClass):
                 </ActuatorList>
               </Timeline>
             </Box>
-            <Box name="Stand Up (9)" id="71" localization="8" tooltip="the robot tries to stand up from any position for a number of tries.&#x0A;&#x0A;Note: The number of tries can be set in parameters." x="4130" y="764">
+            <Box name="Stand Up (9)" id="71" localization="8" tooltip="the robot tries to stand up from any position for a number of tries.&#x0A;&#x0A;Note: The number of tries can be set in parameters." x="4075" y="622">
               <bitmap>media/images/box/movement/stand.png</bitmap>
               <script language="4">
                 <content>
@@ -5293,7 +5180,7 @@ class MyClass(GeneratedClass):
               </Timeline>
               <Resource name="All motors" type="Lock" timeout="0" />
             </Box>
-            <Box name="Python Script (1)" id="72" localization="8" tooltip="This box contains a basic python script and can be used to create any python script box you would like.&#x0A;&#x0A;To edit its script, double-click on it." x="4322" y="241">
+            <Box name="Python Script (1)" id="72" localization="8" tooltip="This box contains a basic python script and can be used to create any python script box you would like.&#x0A;&#x0A;To edit its script, double-click on it." x="4359" y="275">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
@@ -5323,7 +5210,7 @@ import time
 
 # Parameters for the server
 
-host = '169.254.93.16'     # = 'FIND YOUR IP ADDRESS' # See above notes
+host = '169.254.149.207'     # = 'FIND YOUR IP ADDRESS' # See above notes
 # host = 'localhost'          # Localhost, uncomment if running in simulation
 port = 8888 # No need to change
 
@@ -5636,7 +5523,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Switch Case (2)" id="77" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="5757" y="723">
+            <Box name="Switch Case (2)" id="77" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="5796" y="788">
               <bitmap>media/images/box/interaction/choice.png</bitmap>
               <script language="4">
                 <content>
@@ -5685,7 +5572,7 @@ class MyClass(GeneratedClass):
               <Output name="output_2" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="5" />
               <Output name="output_3" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="6" />
             </Box>
-            <Box name="Say (2)" id="78" localization="8" tooltip="Say some text. The text can be localized." x="4530" y="691">
+            <Box name="Say (2)" id="78" localization="8" tooltip="Say some text. The text can be localized." x="4669" y="720">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -5742,7 +5629,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Repeating (1)" id="79" localization="8" tooltip="Say some text. The text can be localized." x="5020" y="326">
+            <Box name="Repeating (1)" id="79" localization="8" tooltip="Say some text. The text can be localized." x="4159" y="426">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -5799,7 +5686,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Speech Reco. (3)" id="80" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="5200" y="430">
+            <Box name="Speech Reco. (3)" id="80" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="6133" y="380">
               <bitmap>media/images/box/interaction/ear.png</bitmap>
               <script language="4">
                 <content>
@@ -5882,7 +5769,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Enable word spotting" inherits_from_parent="0" content_type="0" value="0" default_value="0" tooltip="If this option is not activated the robot will only understand exact expressions. If it is, he will spot the exact expressions even in the middle of a sentence.&#x0A;&#x0A;!!Warning!! This option is only available with the speech recognition module using Nuance (ie in Atom version of the robot)." id="9" />
               <Resource name="Speech recognition" type="Lock" timeout="0" />
             </Box>
-            <Box name="Not recognised (5)" id="81" localization="8" tooltip="Say some text. The text can be localized." x="5378" y="498">
+            <Box name="Not recognised (5)" id="81" localization="8" tooltip="Say some text. The text can be localized." x="6141" y="506">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -5939,7 +5826,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Switch Case (3)" id="82" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="6395" y="369">
+            <Box name="Switch Case (3)" id="82" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="6294" y="294">
               <bitmap>media/images/box/interaction/choice.png</bitmap>
               <script language="4">
                 <content>
@@ -5984,7 +5871,7 @@ class MyClass(GeneratedClass):
               <Output name="output_1" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="4" />
               <Output name="output_2" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="5" />
             </Box>
-            <Box name="Repeating (2)" id="83" localization="8" tooltip="Say some text. The text can be localized." x="4931" y="92">
+            <Box name="Repeating (2)" id="83" localization="8" tooltip="Say some text. The text can be localized." x="5134" y="7">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -6041,7 +5928,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Speech Reco. (4)" id="84" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="5361" y="41">
+            <Box name="Speech Reco. (4)" id="84" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="5287" y="8">
               <bitmap>media/images/box/interaction/ear.png</bitmap>
               <script language="4">
                 <content>
@@ -6199,6 +6086,8 @@ class MyClass(GeneratedClass):
 			self.output_1(p)
 		elif(p == self.typeConversion("no")):
 			self.output_2(p)
+		elif(p == self.typeConversion("finish session")):
+			self.output_3(p)
 		else:
 			self.onDefault()
 
@@ -6217,6 +6106,7 @@ class MyClass(GeneratedClass):
                 <keywords>
                   <keyword>&quot;yes&quot;</keyword>
                   <keyword>&quot;no&quot;</keyword>
+                  <keyword>&quot;finish session&quot;</keyword>
                   <keyword></keyword>
                 </keywords>
               </pluginContent>
@@ -6225,8 +6115,9 @@ class MyClass(GeneratedClass):
               <Output name="onDefault" type="1" type_size="1" nature="2" inner="0" tooltip="If the input value does not match any value set on the box." id="3" />
               <Output name="output_1" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="4" />
               <Output name="output_2" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="5" />
+              <Output name="output_3" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="6" />
             </Box>
-            <Box name="Repeating (3)" id="87" localization="8" tooltip="Say some text. The text can be localized." x="5950" y="89">
+            <Box name="Repeating (3)" id="87" localization="8" tooltip="Say some text. The text can be localized." x="6010" y="49">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -6283,7 +6174,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Speech Reco. (5)" id="88" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="6223" y="93">
+            <Box name="Speech Reco. (5)" id="88" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="6238" y="38">
               <bitmap>media/images/box/interaction/ear.png</bitmap>
               <script language="4">
                 <content>
@@ -6525,7 +6416,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Not recognised (8)" id="92" localization="8" tooltip="Say some text. The text can be localized." x="6636" y="33">
+            <Box name="Not recognised (8)" id="92" localization="8" tooltip="Say some text. The text can be localized." x="6420" y="386">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -6581,210 +6472,6 @@ class MyClass(GeneratedClass):
               <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
               <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
               <Resource name="Speech" type="Lock" timeout="0" />
-            </Box>
-            <Box name="Stand Up (10)" id="93" localization="8" tooltip="the robot tries to stand up from any position for a number of tries.&#x0A;&#x0A;Note: The number of tries can be set in parameters." x="61" y="154">
-              <bitmap>media/images/box/movement/stand.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
-              <Output name="success" type="1" type_size="1" nature="1" inner="0" tooltip="Stimulated when the robot succeed in standing up." id="4" />
-              <Output name="failure" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when the robot failed to stand up after n tries.&#x0A;&#x0A;Note: The number of tries can be set in parameters." id="5" />
-              <Parameter name="Maximum of tries" inherits_from_parent="0" content_type="1" value="3" default_value="3" min="0" max="10" tooltip="The maximum number of fails of stand up before stimulating the failure output." id="6" />
-              <Timeline enable="0">
-                <BehaviorLayer name="StandUpBehavior">
-                  <BehaviorKeyframe name="DetectRobotPose" index="1">
-                    <Diagram>
-                      <Box name="Goto Posture" id="2" localization="8" tooltip="The robot goes from its current postition to the asked posture." x="331" y="92">
-                        <bitmap>media/images/box/box-diagram.png</bitmap>
-                        <script language="4">
-                          <content>
-                            <![CDATA[class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        self.nTries = 0
-        self.postureService = self.session().service("ALRobotPosture")
-        pass
-
-    def onUnload(self):
-        self.postureService.stopMove()
-
-    def onInput_onStart(self):
-        if(self.nTries != self.getParameter("Maximum of tries")):
-            self.nTries = self.getParameter("Maximum of tries")
-            self.postureService.setMaxTryNumber(self.nTries)
-
-        result = self.postureService.goToPosture(self.getParameter("Name"), self.getParameter("Speed (%)")/100.)
-        if(result):
-            self.success()
-        else:
-            self.failure()
-        pass
-
-    def onInput_onStop(self):
-        self.onUnload() #~ it is recommanded to call onUnload of this box in a onStop method, as the code written in onUnload is used to stop the box as well
-        pass]]>
-                          </content>
-                        </script>
-                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
-                        <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
-                        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
-                        <Output name="success" type="1" type_size="1" nature="1" inner="0" tooltip="Stimulated if the posture has been reached." id="4" />
-                        <Output name="failure" type="1" type_size="1" nature="1" inner="0" tooltip="Stimulated if the posture could not be reached." id="5" />
-                        <Parameter name="Name" inherits_from_parent="0" content_type="3" value="Stand" default_value="Stand" custom_choice="1" tooltip="Name of the posture to go to." id="6">
-                          <Choice value="Crouch" />
-                          <Choice value="LyingBack" />
-                          <Choice value="LyingBelly" />
-                          <Choice value="Sit" />
-                          <Choice value="SitRelax" />
-                          <Choice value="StandInit" />
-                          <Choice value="Stand" />
-                          <Choice value="StandZero" />
-                        </Parameter>
-                        <Parameter name="Speed (%)" inherits_from_parent="0" content_type="1" value="80" default_value="80" min="0" max="100" tooltip="Speed to go to the posture." id="7" />
-                        <Parameter name="Maximum of tries" inherits_from_parent="1" content_type="1" value="3" default_value="3" min="0" max="10" tooltip="The maximum number of fails of go to posture before stimulating the failure output." id="8" />
-                        <Resource name="All motors" type="Lock" timeout="0" />
-                        <Resource name="Stiffness" type="Lock" timeout="0" />
-                      </Box>
-                      <Link inputowner="2" indexofinput="2" outputowner="0" indexofoutput="2" />
-                      <Link inputowner="0" indexofinput="4" outputowner="2" indexofoutput="4" />
-                      <Link inputowner="0" indexofinput="5" outputowner="2" indexofoutput="5" />
-                    </Diagram>
-                  </BehaviorKeyframe>
-                </BehaviorLayer>
-              </Timeline>
-              <Resource name="All motors" type="Lock" timeout="0" />
-            </Box>
-            <Box name="Timeline (2)" id="94" localization="8" tooltip="This box is empty (contains a single motion layer with no motor position&#x0A;defined in it) and should be used to create any animation you would like." x="104" y="278">
-              <bitmap>media/images/box/movement/move.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
-              <Timeline enable="1" fps="25" start_frame="1" end_frame="273" size="273">
-                <BehaviorLayer name="behavior_layer1">
-                  <BehaviorKeyframe name="keyframe1" index="1">
-                    <Diagram />
-                  </BehaviorKeyframe>
-                </BehaviorLayer>
-                <ActuatorList model="Nao">
-                  <ActuatorCurve name="" actuator="HeadPitch" mute="0" unit="0">
-                    <Key frame="63" value="7.06528" />
-                    <Key frame="93" value="17.6053" />
-                    <Key frame="122" value="-4.92861" />
-                    <Key frame="152" value="-4.91834" />
-                    <Key frame="203" value="28.525" />
-                    <Key frame="257" value="23.6783" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="HeadYaw" mute="0" unit="0">
-                    <Key frame="93" value="23.7751" />
-                    <Key frame="122" value="23.743" />
-                    <Key frame="152" value="23.743" />
-                    <Key frame="203" value="6.26202" />
-                    <Key frame="257" value="6.26202" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LAnklePitch" mute="0" unit="0">
-                    <Key frame="257" value="4.41032" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LAnkleRoll" mute="0" unit="0">
-                    <Key frame="257" value="-6.80394" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LElbowRoll" mute="0" unit="0">
-                    <Key frame="63" value="-32.5516" />
-                    <Key frame="190" value="-60.5137" />
-                    <Key frame="257" value="-29.8296" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LElbowYaw" mute="0" unit="0">
-                    <Key frame="63" value="-69.7042" />
-                    <Key frame="257" value="-69.5315" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LHand" mute="0" unit="1">
-                    <Key frame="63" value="0.295244" />
-                    <Key frame="257" value="0.260162" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LHipPitch" mute="0" unit="0">
-                    <Key frame="257" value="10.0905" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LHipRoll" mute="0" unit="0">
-                    <Key frame="257" value="6.92268" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LHipYawPitch" mute="0" unit="0">
-                    <Key frame="257" value="-9.15588" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LKneePitch" mute="0" unit="0">
-                    <Key frame="257" value="-5.28609" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LShoulderPitch" mute="0" unit="0">
-                    <Key frame="63" value="85.7515" />
-                    <Key frame="257" value="85.2407" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LShoulderRoll" mute="0" unit="0">
-                    <Key frame="63" value="11.3748" />
-                    <Key frame="257" value="11.1694" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="LWristYaw" mute="0" unit="0">
-                    <Key frame="63" value="5.7711" />
-                    <Key frame="257" value="5.7711" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RAnklePitch" mute="0" unit="0">
-                    <Key frame="257" value="4.423" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RAnkleRoll" mute="0" unit="0">
-                    <Key frame="257" value="4.21152" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="" actuator="RElbowRoll" mute="0" unit="0">
-                    <Key frame="6" value="53.9981" />
-                    <Key frame="63" value="28.0253" />
-                    <Key frame="257" value="25.9326" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="" actuator="RElbowYaw" mute="0" unit="0">
-                    <Key frame="6" value="88.1159" />
-                    <Key frame="63" value="75.0501" />
-                    <Key frame="257" value="72.919" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RHand" mute="0" unit="1">
-                    <Key frame="63" value="0.325116" />
-                    <Key frame="257" value="0.30828" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RHipPitch" mute="0" unit="0">
-                    <Key frame="257" value="9.4047" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RHipRoll" mute="0" unit="0">
-                    <Key frame="257" value="-3.96261" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RHipYawPitch" mute="0" unit="0">
-                    <Key frame="257" value="-9.15588" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RKneePitch" mute="0" unit="0">
-                    <Key frame="257" value="-4.70822" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="" actuator="RShoulderPitch" mute="0" unit="0">
-                    <Key frame="6" value="73.2474" />
-                    <Key frame="63" value="84.3317" />
-                    <Key frame="257" value="83.3999" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="" actuator="RShoulderRoll" mute="0" unit="0">
-                    <Key frame="6" value="-21.8341" />
-                    <Key frame="63" value="-9.96704" />
-                    <Key frame="257" value="-9.90926" />
-                  </ActuatorCurve>
-                  <ActuatorCurve name="value" actuator="RWristYaw" mute="0" unit="0">
-                    <Key frame="63" value="8.28155" />
-                    <Key frame="257" value="7.8786" />
-                  </ActuatorCurve>
-                </ActuatorList>
-              </Timeline>
             </Box>
             <Box name="Timeline (3)" id="95" localization="8" tooltip="This box is empty (contains a single motion layer with no motor position&#x0A;defined in it) and should be used to create any animation you would like." x="1639" y="661">
               <bitmap>media/images/box/movement/move.png</bitmap>
@@ -7161,7 +6848,121 @@ class MyClass(GeneratedClass):
                 </ActuatorList>
               </Timeline>
             </Box>
-            <Box name="Timeline (6)" id="98" localization="8" tooltip="This box is empty (contains a single motion layer with no motor position&#x0A;defined in it) and should be used to create any animation you would like." x="2995" y="407">
+            <Box name="Their Turn (1)" id="99" localization="8" tooltip="Say some text. The text can be localized." x="4101" y="27">
+              <bitmap>media/images/box/interaction/say.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import time
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.tts = self.session().service('ALTextToSpeech')
+        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
+        self.bIsRunning = False
+        self.ids = []
+
+    def onUnload(self):
+        for id in self.ids:
+            try:
+                self.ttsStop.stop(id)
+            except:
+                pass
+        while( self.bIsRunning ):
+            time.sleep( 0.2 )
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+        try:
+            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
+            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
+            # sentence += self.getParameter("Text")
+            sentence +=  "now, it is your turn to do this exercise. get ready to rumble"
+            id = self.tts.pCall("say",str(sentence))
+            self.ids.append(id)
+            self.tts.wait(id)
+        finally:
+            try:
+                self.ids.remove(id)
+            except:
+                pass
+            if( self.ids == [] ):
+                self.onStopped() # activate output of the box
+                self.bIsRunning = False
+
+    def onInput_onStop(self):
+        self.onUnload()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
+              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
+              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
+              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
+              <Resource name="Speech" type="Lock" timeout="0" />
+            </Box>
+            <Box name="Their Turn (2)" id="100" localization="8" tooltip="Say some text. The text can be localized." x="4283" y="53">
+              <bitmap>media/images/box/interaction/say.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import time
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.tts = self.session().service('ALTextToSpeech')
+        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
+        self.bIsRunning = False
+        self.ids = []
+
+    def onUnload(self):
+        for id in self.ids:
+            try:
+                self.ttsStop.stop(id)
+            except:
+                pass
+        while( self.bIsRunning ):
+            time.sleep( 0.2 )
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+        try:
+            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
+            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
+            # sentence += self.getParameter("Text")
+            sentence +=  "Fun Fact: This exercise is good for shoulder mobility"
+            id = self.tts.pCall("say",str(sentence))
+            self.ids.append(id)
+            self.tts.wait(id)
+        finally:
+            try:
+                self.ids.remove(id)
+            except:
+                pass
+            if( self.ids == [] ):
+                self.onStopped() # activate output of the box
+                self.bIsRunning = False
+
+    def onInput_onStop(self):
+        self.onUnload()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
+              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
+              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
+              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
+              <Resource name="Speech" type="Lock" timeout="0" />
+            </Box>
+            <Box name="Timeline (6)" id="98" localization="8" tooltip="This box is empty (contains a single motion layer with no motor position&#x0A;defined in it) and should be used to create any animation you would like." x="3072" y="582">
               <bitmap>media/images/box/movement/move.png</bitmap>
               <script language="4">
                 <content>
@@ -7286,308 +7087,173 @@ class MyClass(GeneratedClass):
                 </ActuatorList>
               </Timeline>
             </Box>
-            <Box name="Their Turn (1)" id="99" localization="8" tooltip="Say some text. The text can be localized." x="4101" y="27">
-              <bitmap>media/images/box/interaction/say.png</bitmap>
+            <Box name="Python Script (2)" id="12" localization="8" tooltip="This box contains a basic python script and can be used to create any python script box you would like.&#x0A;&#x0A;To edit its script, double-click on it." x="6572" y="306">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[import time
+                  <![CDATA[#----------------------------------------------------------------------------------#
+# By Emanuel Nunez and Edward White
+# Version 1.1s
+#----------------------------------------------------------------------------------#
+# Notes
+# For the code to work, the IP address must be set first. This can change everytime the computer is restarted.
+# The IP address can be found by using the command `ipconfig` in the command prompt (Windows), or with `ifconfig` (Linux).
+# The port number is set to 8888 and is the same for the server and client.
+# The private IP address for the computer is used and not the public one
+#----------------------------------------------------------------------------------#
+# Usage
+# This code is used to connect to a server that is running on a computer. The server is listening for a connection from pc
+# 1. Paste this code onto a Python box in Choregraphe
+# 2. Change the output type of onStopped to string
+# 3. Run the server code on the computer
+# 4. Run the code on Choregraphe
+#----------------------------------------------------------------------------------#
+
+
+# Import the necessary modules (yes, even inside of choregraphe)
+import socket
+import random
+import time
+
+# Parameters for the server
+
+host = '169.254.149.207'     # = 'FIND YOUR IP ADDRESS' # See above notes
+# host = 'localhost'          # Localhost, uncomment if running in simulation
+port = 8888 # No need to change
+
+client_socket = None
+
 
 class MyClass(GeneratedClass):
+
+    result = None
+
     def __init__(self):
-        GeneratedClass.__init__(self, False)
+        GeneratedClass.__init__(self)
 
     def onLoad(self):
-        self.tts = self.session().service('ALTextToSpeech')
-        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
-        self.bIsRunning = False
-        self.ids = []
+        # Called when "play" is pressed
+        pass
 
-    def onUnload(self):
-        for id in self.ids:
-            try:
-                self.ttsStop.stop(id)
-            except:
-                pass
-        while( self.bIsRunning ):
-            time.sleep( 0.2 )
+
+    def send_data(self, client_socket, data):
+        self.logger.info("Sending data: %s",str(data))
+        client_socket.sendall(str(data).encode())
 
     def onInput_onStart(self):
-        self.bIsRunning = True
-        try:
-            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
-            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
-            # sentence += self.getParameter("Text")
-            sentence +=  "now, it is your turn to do this exercise. get ready to rumble"
-            id = self.tts.pCall("say",str(sentence))
-            self.ids.append(id)
-            self.tts.wait(id)
-        finally:
-            try:
-                self.ids.remove(id)
-            except:
-                pass
-            if( self.ids == [] ):
-                self.onStopped() # activate output of the box
-                self.bIsRunning = False
+
+        ### 1. Define the server
+        self.logger.info("Connecting to socket...")
+        client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # Connect to the server
+        self.logger.info("Connecting to server...")
+        client_socket.connect((host, port))
+
+        ### 2. Send a message
+        self.send_data(client_socket,"poseCheck=99")
+        # Small delay so the server can keep up
+        time.sleep(0.001)
+        # Sends a 1 to the server
+        data = client_socket.recv(1024).decode()
+        self.logger.info("Data recieved : %s", str(data))
+        self.onStopped(str(data))
+        client_socket.close()
+        pass
 
     def onInput_onStop(self):
-        self.onUnload()]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
-              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
-              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
-              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
-              <Resource name="Speech" type="Lock" timeout="0" />
-            </Box>
-            <Box name="Their Turn (2)" id="100" localization="8" tooltip="Say some text. The text can be localized." x="4283" y="53">
-              <bitmap>media/images/box/interaction/say.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[import time
-
-class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        self.tts = self.session().service('ALTextToSpeech')
-        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
-        self.bIsRunning = False
-        self.ids = []
+        self.onUnload()
+        self.onStopped(str(self.result)) #activate the output of the box
 
     def onUnload(self):
-        for id in self.ids:
-            try:
-                self.ttsStop.stop(id)
-            except:
-                pass
-        while( self.bIsRunning ):
-            time.sleep( 0.2 )
-
-    def onInput_onStart(self):
-        self.bIsRunning = True
-        try:
-            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
-            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
-            # sentence += self.getParameter("Text")
-            sentence +=  "Fun Fact: This exercise is good for shoulder mobility"
-            id = self.tts.pCall("say",str(sentence))
-            self.ids.append(id)
-            self.tts.wait(id)
-        finally:
-            try:
-                self.ids.remove(id)
-            except:
-                pass
-            if( self.ids == [] ):
-                self.onStopped() # activate output of the box
-                self.bIsRunning = False
-
-    def onInput_onStop(self):
-        self.onUnload()]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
-              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
-              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
-              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
-              <Resource name="Speech" type="Lock" timeout="0" />
-            </Box>
-            <Box name="Their Turn (3)" id="101" localization="8" tooltip="Say some text. The text can be localized." x="4103" y="978">
-              <bitmap>media/images/box/interaction/say.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[import time
-
-class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        self.tts = self.session().service('ALTextToSpeech')
-        self.ttsStop = self.session().service('ALTextToSpeech') #Create another service as wait is blocking if audioout is remote
-        self.bIsRunning = False
-        self.ids = []
-
-    def onUnload(self):
-        for id in self.ids:
-            try:
-                self.ttsStop.stop(id)
-            except:
-                pass
-        while( self.bIsRunning ):
-            time.sleep( 0.2 )
-
-    def onInput_onStart(self):
-        self.bIsRunning = True
-        try:
-            sentence = "\RSPD="+ str( self.getParameter("Speed (%)") ) + "\ "
-            sentence += "\VCT="+ str( self.getParameter("Voice shaping (%)") ) + "\ "
-            # sentence += self.getParameter("Text")
-            sentence +=  "sorry, this exercise is not available. would you like to another exercise or finish the session for today"
-            id = self.tts.pCall("say",str(sentence))
-            self.ids.append(id)
-            self.tts.wait(id)
-        finally:
-            try:
-                self.ids.remove(id)
-            except:
-                pass
-            if( self.ids == [] ):
-                self.onStopped() # activate output of the box
-                self.bIsRunning = False
-
-    def onInput_onStop(self):
-        self.onUnload()]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this Input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this Input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when Box behavior is finished." id="4" />
-              <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
-              <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
-              <Parameter name="Text" inherits_from_parent="0" content_type="5" value="Hello" default_value="" tooltip="The text you want to say. Don&apos;t forget to translate it!" id="7" />
-              <Resource name="Speech" type="Lock" timeout="0" />
-            </Box>
-            <Box name="Speech Reco. (6)" id="102" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="4270" y="978">
-              <bitmap>media/images/box/interaction/ear.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[
-
-class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        try:
-            self.asr = self.session().service("ALSpeechRecognition")
-        except Exception as e:
-            self.asr = None
-            self.logger.error(e)
-        self.memory = self.session().service("ALMemory")
-        from threading import Lock
-        self.bIsRunning = False
-        self.mutex = Lock()
-        self.hasPushed = False
-        self.hasSubscribed = False
-        self.BIND_PYTHON(self.getName(), "onWordRecognized")
-
-    def onUnload(self):
-        from threading import Lock
-        self.mutex.acquire()
-        try:
-            if (self.bIsRunning):
-                if (self.hasSubscribed):
-                    self.memory.unsubscribeToEvent("WordRecognized", self.getName())
-                if (self.hasPushed and self.asr):
-                    self.asr.popContexts()
-        except RuntimeError, e:
-            self.mutex.release()
-            raise e
-        self.bIsRunning = False;
-        self.mutex.release()
-
-    def onInput_onStart(self):
-        from threading import Lock
-        self.mutex.acquire()
-        if(self.bIsRunning):
-            self.mutex.release()
-            return
-        self.bIsRunning = True
-        try:
-            if self.asr:
-                self.asr.pushContexts()
-            self.hasPushed = True
-            if self.asr:
-                self.asr.setVocabulary( self.getParameter("Word list").split(';'), self.getParameter("Enable word spotting") )
-            self.memory.subscribeToEvent("WordRecognized", self.getName(), "onWordRecognized")
-            self.hasSubscribed = True
-        except RuntimeError, e:
-            self.mutex.release()
-            self.onUnload()
-            raise e
-        self.mutex.release()
-
-    def onInput_onStop(self):
-        if( self.bIsRunning ):
-            self.onUnload()
-            self.onStopped()
-
-    def onWordRecognized(self, key, value, message):
-        if(len(value) > 1 and value[1] >= self.getParameter("Confidence threshold (%)")/100.):
-            self.wordRecognized(value[0]) #~ activate output of the box
-        else:
-            self.onNothing()]]>
+        # Close the socket when stopped
+        if client_socket is not None:
+            client_socket.close()
+        pass]]>
                 </content>
               </script>
               <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
               <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
               <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
-              <Output name="wordRecognized" type="3" type_size="1" nature="2" inner="0" tooltip="Word recognized with a confidence higher than the threshold set in the box parameters." id="5" />
-              <Output name="onNothing" type="1" type_size="1" nature="2" inner="0" tooltip="Nothing has been understood." id="6" />
-              <Parameter name="Word list" inherits_from_parent="0" content_type="3" value="yes;no;finish session" default_value="yes;no" custom_choice="0" tooltip="Try to recognize a word from a list of words set in the box parameters." id="7" />
-              <Parameter name="Confidence threshold (%)" inherits_from_parent="0" content_type="1" value="30" default_value="30" min="0" max="100" tooltip="If the confidence associated with the word recognized is below this threshold, the robot will consider that it is not recognized." id="8" />
-              <Parameter name="Enable word spotting" inherits_from_parent="0" content_type="0" value="0" default_value="0" tooltip="If this option is not activated the robot will only understand exact expressions. If it is, he will spot the exact expressions even in the middle of a sentence.&#x0A;&#x0A;!!Warning!! This option is only available with the speech recognition module using Nuance (ie in Atom version of the robot)." id="9" />
-              <Resource name="Speech recognition" type="Lock" timeout="0" />
             </Box>
-            <Box name="Switch Case (6)" id="103" localization="8" tooltip="Test input value and stimulate the output matching to this value. If there is no&#x0A;matching output, the default output (onDefault) is stimulated.&#x0A;&#x0A;You can edit a case by left double-clicking on the line. You can add a&#x0A;case by right clicking on a line and selecting &apos;Insert a row&apos;. You can delete&#x0A;a case by right clicking on a line and selecting &apos;Remove a row&apos;." plugin="dispatcher_plugin" x="5374" y="966">
-              <bitmap>media/images/box/interaction/choice.png</bitmap>
+            <Box name="Stand Up (11)" id="55" localization="8" tooltip="the robot tries to stand up from any position for a number of tries.&#x0A;&#x0A;Note: The number of tries can be set in parameters." x="3833" y="288">
+              <bitmap>media/images/box/movement/stand.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[# /!\ Generated content. Do not edit!
-class MyClass(GeneratedClass):
-	def __init__(self):
-		try: # disable autoBind
-		  GeneratedClass.__init__(self, False)
-		except TypeError: # if NAOqi < 1.14
-		  GeneratedClass.__init__( self )
-
-	def onInput_onStart(self, p):
-		p = self.typeConversion(p)
-		if(p == self.typeConversion("yes")):
-			self.output_1(p)
-		elif(p == self.typeConversion("no")):
-			self.output_2(p)
-		elif(p == self.typeConversion("finish session")):
-			self.output_3(p)
-		else:
-			self.onDefault()
-
-	def typeConversion(self, p):
-		try:
-			p = float(p)
-			pint = int(p)
-			if( p == pint ):
-				p = pint
-		except:
-			p = str(p)
-		return p]]>
+                  <![CDATA[]]>
                 </content>
               </script>
-              <pluginContent>
-                <keywords>
-                  <keyword>&quot;yes&quot;</keyword>
-                  <keyword>&quot;no&quot;</keyword>
-                  <keyword>&quot;finish session&quot;</keyword>
-                  <keyword></keyword>
-                </keywords>
-              </pluginContent>
               <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
-              <Input name="onStart" type="0" type_size="1" nature="1" inner="0" tooltip="Value to test." id="2" />
-              <Output name="onDefault" type="1" type_size="1" nature="2" inner="0" tooltip="If the input value does not match any value set on the box." id="3" />
-              <Output name="output_1" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="4" />
-              <Output name="output_2" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="5" />
-              <Output name="output_3" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="6" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Output name="success" type="1" type_size="1" nature="1" inner="0" tooltip="Stimulated when the robot succeed in standing up." id="4" />
+              <Output name="failure" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when the robot failed to stand up after n tries.&#x0A;&#x0A;Note: The number of tries can be set in parameters." id="5" />
+              <Parameter name="Maximum of tries" inherits_from_parent="0" content_type="1" value="3" default_value="3" min="0" max="10" tooltip="The maximum number of fails of stand up before stimulating the failure output." id="6" />
+              <Timeline enable="0">
+                <BehaviorLayer name="StandUpBehavior">
+                  <BehaviorKeyframe name="DetectRobotPose" index="1">
+                    <Diagram>
+                      <Box name="Goto Posture" id="2" localization="8" tooltip="The robot goes from its current postition to the asked posture." x="331" y="92">
+                        <bitmap>media/images/box/box-diagram.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.nTries = 0
+        self.postureService = self.session().service("ALRobotPosture")
+        pass
+
+    def onUnload(self):
+        self.postureService.stopMove()
+
+    def onInput_onStart(self):
+        if(self.nTries != self.getParameter("Maximum of tries")):
+            self.nTries = self.getParameter("Maximum of tries")
+            self.postureService.setMaxTryNumber(self.nTries)
+
+        result = self.postureService.goToPosture(self.getParameter("Name"), self.getParameter("Speed (%)")/100.)
+        if(result):
+            self.success()
+        else:
+            self.failure()
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #~ it is recommanded to call onUnload of this box in a onStop method, as the code written in onUnload is used to stop the box as well
+        pass]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+                        <Output name="success" type="1" type_size="1" nature="1" inner="0" tooltip="Stimulated if the posture has been reached." id="4" />
+                        <Output name="failure" type="1" type_size="1" nature="1" inner="0" tooltip="Stimulated if the posture could not be reached." id="5" />
+                        <Parameter name="Name" inherits_from_parent="0" content_type="3" value="Stand" default_value="Stand" custom_choice="1" tooltip="Name of the posture to go to." id="6">
+                          <Choice value="Crouch" />
+                          <Choice value="LyingBack" />
+                          <Choice value="LyingBelly" />
+                          <Choice value="Sit" />
+                          <Choice value="SitRelax" />
+                          <Choice value="StandInit" />
+                          <Choice value="Stand" />
+                          <Choice value="StandZero" />
+                        </Parameter>
+                        <Parameter name="Speed (%)" inherits_from_parent="0" content_type="1" value="80" default_value="80" min="0" max="100" tooltip="Speed to go to the posture." id="7" />
+                        <Parameter name="Maximum of tries" inherits_from_parent="1" content_type="1" value="3" default_value="3" min="0" max="10" tooltip="The maximum number of fails of go to posture before stimulating the failure output." id="8" />
+                        <Resource name="All motors" type="Lock" timeout="0" />
+                        <Resource name="Stiffness" type="Lock" timeout="0" />
+                      </Box>
+                      <Link inputowner="2" indexofinput="2" outputowner="0" indexofoutput="2" />
+                      <Link inputowner="0" indexofinput="4" outputowner="2" indexofoutput="4" />
+                      <Link inputowner="0" indexofinput="5" outputowner="2" indexofoutput="5" />
+                    </Diagram>
+                  </BehaviorKeyframe>
+                </BehaviorLayer>
+              </Timeline>
+              <Resource name="All motors" type="Lock" timeout="0" />
             </Box>
             <Link inputowner="4" indexofinput="2" outputowner="5" indexofoutput="4" />
             <Link inputowner="3" indexofinput="2" outputowner="4" indexofoutput="4" />
@@ -7599,7 +7265,6 @@ class MyClass(GeneratedClass):
             <Link inputowner="10" indexofinput="2" outputowner="11" indexofoutput="4" />
             <Link inputowner="14" indexofinput="2" outputowner="15" indexofoutput="4" />
             <Link inputowner="129" indexofinput="2" outputowner="16" indexofoutput="4" />
-            <Link inputowner="55" indexofinput="2" outputowner="1" indexofoutput="4" />
             <Link inputowner="7" indexofinput="2" outputowner="21" indexofoutput="5" />
             <Link inputowner="22" indexofinput="2" outputowner="10" indexofoutput="4" />
             <Link inputowner="22" indexofinput="2" outputowner="23" indexofoutput="4" />
@@ -7694,7 +7359,6 @@ class MyClass(GeneratedClass):
             <Link inputowner="67" indexofinput="2" outputowner="56" indexofoutput="8" />
             <Link inputowner="57" indexofinput="2" outputowner="66" indexofoutput="4" />
             <Link inputowner="57" indexofinput="2" outputowner="67" indexofoutput="4" />
-            <Link inputowner="68" indexofinput="2" outputowner="66" indexofoutput="4" />
             <Link inputowner="69" indexofinput="2" outputowner="67" indexofoutput="4" />
             <Link inputowner="13" indexofinput="2" outputowner="68" indexofoutput="4" />
             <Link inputowner="70" indexofinput="2" outputowner="65" indexofoutput="4" />
@@ -7722,7 +7386,6 @@ class MyClass(GeneratedClass):
             <Link inputowner="80" indexofinput="3" outputowner="80" indexofoutput="5" />
             <Link inputowner="79" indexofinput="2" outputowner="77" indexofoutput="5" />
             <Link inputowner="82" indexofinput="2" outputowner="80" indexofoutput="5" />
-            <Link inputowner="10" indexofinput="2" outputowner="82" indexofoutput="4" />
             <Link inputowner="84" indexofinput="2" outputowner="83" indexofoutput="4" />
             <Link inputowner="84" indexofinput="2" outputowner="85" indexofoutput="4" />
             <Link inputowner="85" indexofinput="2" outputowner="84" indexofoutput="6" />
@@ -7740,30 +7403,28 @@ class MyClass(GeneratedClass):
             <Link inputowner="10" indexofinput="2" outputowner="90" indexofoutput="4" />
             <Link inputowner="92" indexofinput="2" outputowner="90" indexofoutput="5" />
             <Link inputowner="92" indexofinput="2" outputowner="82" indexofoutput="5" />
-            <Link inputowner="0" indexofinput="4" outputowner="92" indexofoutput="4" />
             <Link inputowner="92" indexofinput="2" outputowner="77" indexofoutput="6" />
             <Link inputowner="72" indexofinput="2" outputowner="13" indexofoutput="4" />
-            <Link inputowner="93" indexofinput="2" outputowner="0" indexofoutput="2" />
-            <Link inputowner="94" indexofinput="2" outputowner="93" indexofoutput="4" />
-            <Link inputowner="93" indexofinput="2" outputowner="94" indexofoutput="4" />
             <Link inputowner="95" indexofinput="2" outputowner="47" indexofoutput="4" />
             <Link inputowner="96" indexofinput="2" outputowner="20" indexofoutput="4" />
             <Link inputowner="97" indexofinput="2" outputowner="96" indexofoutput="4" />
-            <Link inputowner="98" indexofinput="2" outputowner="8" indexofoutput="4" />
-            <Link inputowner="98" indexofinput="2" outputowner="11" indexofoutput="4" />
             <Link inputowner="99" indexofinput="2" outputowner="14" indexofoutput="4" />
             <Link inputowner="60" indexofinput="2" outputowner="99" indexofoutput="4" />
             <Link inputowner="100" indexofinput="2" outputowner="99" indexofoutput="4" />
             <Link inputowner="60" indexofinput="2" outputowner="100" indexofoutput="4" />
-            <Link inputowner="101" indexofinput="2" outputowner="70" indexofoutput="4" />
-            <Link inputowner="101" indexofinput="2" outputowner="69" indexofoutput="4" />
-            <Link inputowner="102" indexofinput="3" outputowner="102" indexofoutput="5" />
-            <Link inputowner="103" indexofinput="2" outputowner="102" indexofoutput="5" />
-            <Link inputowner="102" indexofinput="2" outputowner="101" indexofoutput="4" />
-            <Link inputowner="10" indexofinput="2" outputowner="103" indexofoutput="4" />
-            <Link inputowner="92" indexofinput="2" outputowner="103" indexofoutput="5" />
-            <Link inputowner="92" indexofinput="2" outputowner="103" indexofoutput="6" />
             <Link inputowner="92" indexofinput="2" outputowner="56" indexofoutput="5" />
+            <Link inputowner="79" indexofinput="2" outputowner="70" indexofoutput="4" />
+            <Link inputowner="79" indexofinput="2" outputowner="69" indexofoutput="4" />
+            <Link inputowner="98" indexofinput="2" outputowner="8" indexofoutput="4" />
+            <Link inputowner="98" indexofinput="2" outputowner="11" indexofoutput="4" />
+            <Link inputowner="92" indexofinput="2" outputowner="86" indexofoutput="6" />
+            <Link inputowner="12" indexofinput="2" outputowner="92" indexofoutput="4" />
+            <Link inputowner="12" indexofinput="2" outputowner="24" indexofoutput="4" />
+            <Link inputowner="55" indexofinput="2" outputowner="66" indexofoutput="4" />
+            <Link inputowner="68" indexofinput="2" outputowner="55" indexofoutput="4" />
+            <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="49" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="16" indexofinput="2" outputowner="0" indexofoutput="2" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>
