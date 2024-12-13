@@ -1,3 +1,4 @@
+import os  # Import os for folder and file handling
 import socket
 import cv2
 import mediapipe as mp
@@ -13,7 +14,9 @@ pose = mp_pose.Pose()
 
 # Shared variables for pose status
 pose_detected = None  # Stores the detected arm level or None
+neck_rotation = None  # Stores the detected neck rotation
 lock = threading.Lock()  # Ensure thread-safe access to shared variable
+log_file_path = None  # Global path for the log file
 
 
 def draw_landmarks_on_image(frame, pose_landmarks):
@@ -33,11 +36,10 @@ def get_arm_level(pose_landmarks):
     Calculates the arm level based on elbow and shoulder positions.
     Returns the level if both arms are at the same level, otherwise None.
     """
-    # Access the landmarks
-    left_elbow = pose_landmarks.landmark[mp.solutions.pose.PoseLandmark.LEFT_ELBOW.value]
-    right_elbow = pose_landmarks.landmark[mp.solutions.pose.PoseLandmark.RIGHT_ELBOW.value]
-    left_shoulder = pose_landmarks.landmark[mp.solutions.pose.PoseLandmark.LEFT_SHOULDER.value]
-    right_shoulder = pose_landmarks.landmark[mp.solutions.pose.PoseLandmark.RIGHT_SHOULDER.value]
+    left_elbow = pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_ELBOW.value]
+    right_elbow = pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW.value]
+    left_shoulder = pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value]
+    right_shoulder = pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value]
 
     def calculate_level(elbow, shoulder):
         vertical_dist = elbow.y - shoulder.y
@@ -61,6 +63,7 @@ def get_arm_level(pose_landmarks):
         return left_level
     return None
 
+
 def check_neck_rotation(pose_landmarks):
     """
     Detects if the neck is rotated to the side based on the positions of the nose and shoulders.
@@ -70,24 +73,49 @@ def check_neck_rotation(pose_landmarks):
     left_shoulder = pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value]
     right_shoulder = pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value]
 
-    # Calculate the middle x-position between the shoulders
     middle_x = (left_shoulder.x + right_shoulder.x) / 2
-    tolerance = 0.05  # Neutral zone for straight neck detection
-
-    # print(f"Nose x: {nose.x}, Left Shoulder x: {left_shoulder.x}, Right Shoulder x: {right_shoulder.x}")
+    tolerance = 0.05
 
     if nose.x < middle_x - tolerance:
-        return "Looking Left"  # Neck rotated to the left
+        return "Looking Right"
     elif nose.x > middle_x + tolerance:
-        return "Looking Right"  # Neck rotated to the right
-    # return "Straight"  # Neck is straight
+        return "Looking Left"
+    return "Straight"
+
+
+def create_folder_and_file(folder_name, filename):
+    """
+    Creates a folder and a log file if they do not already exist.
+    """
+    global log_file_path
+    if not os.path.exists(folder_name):
+        os.makedirs(folder_name)
+        print(f"Folder '{folder_name}' created.")
+
+    log_file_path = os.path.join(folder_name, filename)
+    if not os.path.exists(log_file_path):
+        with open(log_file_path, "w") as file:
+            file.write("Pose Log\n")
+            file.write("=" * 30 + "\n")
+        print(f"File '{filename}' created in '{folder_name}'.")
+
+
+def append_to_log(content):
+    """
+    Appends a line of content to the log file.
+    """
+    global log_file_path
+    with open(log_file_path, "a") as file:
+        file.write(content + "\n")
+    print(f"Saved to log: {content}")
+
 
 def process_camera():
     """
-    Continuously processes the camera feed to detect arm levels, neck rotations, and display landmarks.
+    Continuously processes the camera feed to detect arm levels and display landmarks.
     """
     global pose_detected, neck_rotation
-    cap = cv2.VideoCapture(0)  # Use 0 for the default webcam
+    cap = cv2.VideoCapture(0)
 
     if not cap.isOpened():
         print("Error: Unable to access the camera.")
@@ -99,23 +127,17 @@ def process_camera():
             print("Error: Unable to read frame.")
             break
 
-        # Convert the image to RGB
         rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-
-        # Process the frame for pose detection
         result = pose.process(rgb_frame)
 
         with lock:
-            pose_detected = None  # Reset arm detection
-            neck_rotation = None  # Reset neck rotation
+            pose_detected = None
+            neck_rotation = None
             if result.pose_landmarks:
                 pose_detected = get_arm_level(result.pose_landmarks)
                 neck_rotation = check_neck_rotation(result.pose_landmarks)
-
-                # Draw landmarks on the frame
                 draw_landmarks_on_image(frame, result.pose_landmarks)
 
-        # Display the frame
         cv2.imshow('Pose Detection', frame)
         if cv2.waitKey(5) & 0xFF == 27:  # Press 'Esc' to exit
             break
@@ -126,21 +148,25 @@ def process_camera():
 
 def isInPose_1():
     """
-    Blocks until the arms are detected at the same level, then returns the level.
+    Blocks until the arms are detected at the same level, logs the result, and then returns the level.
     """
     while True:
         with lock:
             if pose_detected is not None:
+                append_to_log(f"Side arms have been done. Level {pose_detected}")
                 return pose_detected
+
 
 def isInPose_2():
     """
-    Blocks until the neck rotation is detected, then returns the direction ('Looking Left', 'Looking Right', or 'Straight').
+    Blocks until the neck rotation is detected, logs the result, and then returns the direction.
     """
     while True:
         with lock:
             if neck_rotation is not None:
+                append_to_log(f"Neck stretch has been done. {neck_rotation}")
                 return neck_rotation
+
 
 class SimpleServer:
     def __init__(self, host, port):
@@ -152,7 +178,6 @@ class SimpleServer:
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server_socket.bind((self.host, self.port))
         self.server_socket.listen(1)
-
         print("Waiting for incoming connection...")
 
         try:
@@ -166,13 +191,13 @@ class SimpleServer:
             self.server_socket.close()
 
     def decodeMsg(self, msg):
-        valid_vals = [1,2,99]
+        valid_vals = [1, 2, 99]
         if "poseCheck=" in msg:
-            stripped_msg = msg.replace("poseCheck=","")
+            stripped_msg = msg.replace("poseCheck=", "")
             try:
                 if int(stripped_msg) in valid_vals:
                     return int(stripped_msg)
-            except:
+            except ValueError:
                 return 0
         return 0
 
@@ -192,20 +217,17 @@ class SimpleServer:
             case 99:
                 exit()
             case _:
-                print("Invalid pose index: ", str(poseIdx))
+                print("Invalid pose index:", str(poseIdx))
                 result = False
-            
+
         client_response = f"{result}"
         print("Sending data:", client_response)
         client_socket.sendall(client_response.encode())
-
         client_socket.close()
 
 
 if __name__ == "__main__":
-    # Start the MediaPipe processing thread
+    create_folder_and_file("pose_logs", "pose_log.txt")
     threading.Thread(target=process_camera, daemon=True).start()
-
-    # Start the server
     server = SimpleServer(host, port)
     server.start_server()
